@@ -28,6 +28,11 @@ public class BoxProcessor{
             }
     }
 
+    /**
+     * a method using insertion sort to loop and sort an array of boxes according to volume from smallest to biggest
+     * @param list the unsorted list of boxes
+     */
+
     public void sort(List<Box> list){
         int n = list.size();
         if (n <= 0){
@@ -44,16 +49,36 @@ public class BoxProcessor{
         }
     }
 
+    /**
+     * A helper-method to helt sort sort arrays
+     * @param <box> the type of element in the array
+     * @param array the array of boxes
+     * @param i the index the smaller box should have
+     * @param j the indes the bigger box should have
+     */
+
     public static final <box> void swap (Box[] array, int i, int j){
         Box box = array [i];
         array [i] = array [j];
         array [j] = box;
     }
-
+    /**
+     * A helper-method to helt sort sort ArrayList
+     * @param <box> the type of element in the ArrayList
+     * @param list the array of boxes
+     * @param i the index the smaller box should have
+     * @param j the indes the bigger box should have
+     */
     public static final <box> void swap (List<box> list, int i, int j){
         Collections.swap(list, i, j);
     }
     
+    /**
+     * a method to compare boxes in an array with another box to find it the array has a box with the same volume in it
+     * @param array the array of boxes
+     * @param box the box we want to compare the the boxes in the array
+     * @return returns -1 if there are no equal boxes in the array
+     */
     public int sequentialSearch(Box[] array, Box box){
         int n = array.length;
             for (int i = 0; i < n; i++){
@@ -69,6 +94,13 @@ public class BoxProcessor{
      //   i ++;
     // }
 
+
+    /**
+     * a method to compare boxes in an arrayList with another box to find it the list has a box with the same volume in it
+     * @param list the list of boxes
+     * @param box the box we want to compare with the boxes in the list
+     * @return  returns -1 if there are no equal boxes in the list
+     */
     public int sequentialSearch(List<Box> list, Box box){
         int n = list.size();
         for (int i = 0; i < n; i++){
@@ -79,6 +111,12 @@ public class BoxProcessor{
         }
         return -1;
     }
+    /**
+     * a method to search a sorted array using binarysearch instead of sequental search
+     * @param array the array of boxes
+     * @param box the box we want to compare the the boxes in the array
+     * @return -1 if there are no equal boxes (volume) in the array
+     */
 
     public int binarySearch(Box[] array, Box box){
         int low = 0;
@@ -96,6 +134,13 @@ public class BoxProcessor{
                 }
             return -1;
         }
+
+        /**
+         * a method to search a sorted array using binarysearch instead of sequental search
+         * @param list of boxes
+         * @param box the box we want to compare with the boxes in the list
+         * @return returns -1 if there are no equal boxes in the list
+         */
 
     public int binarySearch(List<Box> list, Box box){
         int low = 0;

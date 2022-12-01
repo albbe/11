@@ -18,14 +18,17 @@ public class BoxProcessor{
         } 
         if (n == 1){
         }
-        for (int i = 1; i < n; i++){
-            Box current = array [i - 1];
-            Box next = array[i];
-            int j = i - 1;
-                if (current.compareTo(next) > 0) {
-                    swap(array, i, j);
-                }
+        for (int i = 0; i < n-1; i++){
+            int j = i;
+            Box currentBox = array[i];
+            Box nextBox = array[i+1];
+            int sort = currentBox.compareTo(nextBox);
+            while (j > 0 && sort > 0){
+                int k = n - 1;
+                swap(array, i, k);
             }
+    
+        }   
     }
 
     /**
@@ -40,10 +43,10 @@ public class BoxProcessor{
         if (n == 1){
         }
         for (int i = 1; i < n; i++){
-            Box current = list.get(i);
-            Box next = list.get(i-1);
+            Box current = list.get(i-1);
+            Box next = list.get(i);
             int j = i - 1;
-            if (current.compareTo(next) > 0){
+            if (next.compareTo(current) > 0){
                 swap(list, i, j);
             }
         }
@@ -57,9 +60,9 @@ public class BoxProcessor{
      * @param j the indes the bigger box should have
      */
 
-    public static final <box> void swap (Box[] array, int i, int j){
-        Box box = array [i];
-        array [i] = array [j];
+    public static final <box> void swap (Box[] array, int n, int j){
+        Box box = array [n-1];
+        array [n-1] = array [j];
         array [j] = box;
     }
     /**
